@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>view-space</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-card  >
+    
+    
+    <img [src]="this.image" />
+    <ion-card-header>
+      <div>
+      <ion-card-title>{{this.categories}}</ion-card-title>
+      <ion-card-subtitle>{{this.address}}</ion-card-subtitle>
+    </div>
+    <div>
+      <form>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <span>Checkin</span>
+              <ion-input type="date"></ion-input>
+            </ion-col>
+            <ion-col>
+              <span>Timein</span>
+              <ion-input type="time"></ion-input>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col>
+              <span>Checkout</span>
+              <ion-input type="date"></ion-input>
+            </ion-col>
+            <ion-col>
+              <span>Timeout</span>
+              <ion-input type="time"></ion-input>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </form>
+    </div>
+  
+     
+    </ion-card-header>
+    <ion-card-content>
+
+<ion-grid >
+  <ion-row>  <span><b>Description</b></span></ion-row>
+  <ion-row>
+  
+   {{this.description}}
+  </ion-row>
+  <ion-row><span><b>amenities</b></span></ion-row>
+  <ion-row >
+    
+   <ion-col  *ngFor="let y of amenities">
+    {{y}}
+   </ion-col>
+  </ion-row>
+</ion-grid>
+   </ion-card-content>
+  
+  </ion-card>
+
+</ion-content>
