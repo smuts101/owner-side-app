@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>view-walkins</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row *ngFor="let x of walkinList">
+
+      <p>
+       name: {{x.name}} surname: {{x.surname}} email: {{x.email}} phone: {{x.phone}} checkin: {{x.checkin}} timein: {{x.timein}} checkout:{{x.checkout}} timeout:{{x.timeout}} 
+        
+      </p>
+      
+    </ion-row>
+  </ion-grid>
+</ion-content>

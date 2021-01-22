@@ -173,6 +173,33 @@ export class OwnerServiceService {
     ]);
   }
 
+  walkinBooking(profiles_uid,profile_uid,spaceuid,name,
+          surname,email,phone,timeout,timein,checkout,
+          checkin,category
+          ) {
+    var db = firebase.firestore();
+    var hotelsRef = db.collection("profiles").doc(profiles_uid);
+    var hotel = Promise.all([
+      hotelsRef.collection("profile").doc(profile_uid)
+               .collection("space").doc(spaceuid)
+               .collection("walkins")
+        .add({
+          name: name,
+          surname:surname,
+          email:email,
+          phone:phone,
+          timeout:timeout,
+          timein:timein,
+          checkout:checkout,
+          checkin:checkin,
+          spaceuid:spaceuid,
+          category:category,
+          date: new Date() 
+        }).then(a => {
+          console.log("Changed")
+        })
+    ]);
+  }
 
 
   updateCoworkingSpace(profiles_uid,profile_uid,cate_uid,categories,category_number,address,price,city,province,amenities,description) {

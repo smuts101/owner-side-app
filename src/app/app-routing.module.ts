@@ -71,6 +71,18 @@ const routes: Routes = [
   {
     path: 'masseges',
     loadChildren: () => import('./feedback/masseges/masseges.module').then( m => m.MassegesPageModule)
+  },
+  {
+    path: 'walkins',
+    loadChildren: () => import('./pages/walkins/walkins.module').then( m => m.WalkinsPageModule)
+  },
+  {
+    path: 'walkins/:spaceuid/:category/:profileuid',
+    loadChildren: () => import('./pages/walkins/walkins.module').then( m => m.WalkinsPageModule)
+  },
+  {
+    path: 'view-walkins/:spaceuid/:category/:profileuid',
+    loadChildren: () => import('./pages/view-walkins/view-walkins.module').then( m => m.ViewWalkinsPageModule)
   }
 ];
 

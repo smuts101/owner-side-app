@@ -42,13 +42,19 @@
          <a [routerLink] = "['/previews',x.uid,x.workspace_uid,x.spaceuid]">Previews</a>
        </ion-row>
        <ion-row>
-         <ion-col size="4">
+         <ion-col>
           <ion-button (click)="EditForm(x.spaceuid)"> Edit</ion-button>
          </ion-col>
-         <ion-col size="4"><ion-button (click)=" addGallary(x.spaceuid)"    color="warning">Gallary</ion-button></ion-col>
-         <ion-col size="4">
-          <ion-button (click)="remove(x.spaceuid)" > Remove</ion-button>
+         <ion-col ><ion-button (click)=" addGallary(x.spaceuid)"    color="warning">Gallary</ion-button></ion-col>
+         <ion-col>
+          <ion-button color="danger" (click)="remove(x.spaceuid)" > Remove</ion-button>
          </ion-col>
+         <ion-col >
+          <ion-button  [routerLink] = "['/walkins',x.spaceuid,x.categories,x.workspace_uid]"> Walkins</ion-button>
+         </ion-col>
+       </ion-row>
+       <ion-row>
+        <ion-button  [routerLink] = "['/view-walkins',x.spaceuid,x.categories,x.workspace_uid]">view Walkins</ion-button>
        </ion-row>
      </ion-grid>
     </ion-label>
