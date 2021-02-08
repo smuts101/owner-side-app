@@ -12,7 +12,8 @@
     //border-style: dotted;
     position: absolute;
     top: 0px;
-    background-color:#303d3d;
+    background-color:#9010F5;
+    text-align: center;
     opacity: 80%;
     // border-bottom-left-radius: 120px;
 }
@@ -26,4 +27,14 @@
 }
 ion-select{
     font-size: 10px;
+}
+
+.viewspaces{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    color: #9010F5;
+    
 }

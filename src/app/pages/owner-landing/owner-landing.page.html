@@ -29,7 +29,7 @@
     <ion-card  style="width:40%; background-color: #16D6E3; height: 100%;font-size: 20px;font-weight: bold">
        <p *ngIf="this.oldBookNum!=0" style="position: absolute;left:5%;top: 2%;">{{this.oldBookNum}}</p>
        <p *ngIf="this.oldBookNum==0" style="position: absolute;left:5%;top: 2%;">{{this.oldBookNum}}</p>
-       <p style="position: absolute; right:5%;bottom: 2%;font-size: 10px;">Hostory</p>
+       <p style="position: absolute; right:5%;bottom: 2%;font-size: 10px;">History</p>
       </ion-card>
     <ion-card  style="width:40%; background-color: #2D98E6; height: 100%;font-size: 20px;font-weight: bold">  
        <p *ngIf="this.spacesNum!=0" style="position: absolute;left: 5%;top: 2%;"> {{this.spacesNum}}</p>
@@ -103,8 +103,11 @@
   <ion-footer style="position: absolute; height: 50px;bottom: 0px;background-color:  #303d3d; display: flex;justify-content: center;align-items: center;" >
   
     <ion-icon [routerLink]="'/profile'" style="font-size: 30px;position: absolute;right: 7%;color: grey;" name="person-outline"></ion-icon>
-    <ion-icon [routerLink]="'/walkins'" style="font-size: 30px;position: absolute;right: 33%;color: grey;" name="heart-outline"></ion-icon>
+    <!-- <ion-icon [routerLink]="'/walkins'" style="font-size: 30px;position: absolute;right: 33%;color: grey;" name="heart-outline"></ion-icon> -->
+    <ion-icon [routerLink]="'/walkins'" style="font-size: 30px;position: absolute;right: 33%;color: grey;"name="walk-outline"></ion-icon>
     <ion-icon [routerLink]="'/owner-landing'" style="font-size: 30px;position: absolute;left: 7%;color: grey;" name="home-outline"></ion-icon>
     <ion-icon [routerLink]="'/add-space'" style="position: absolute;left:33%;font-size: 30px;color: grey;" name="add-circle-outline"></ion-icon>
   </ion-footer>
+
+  
   

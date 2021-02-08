@@ -1,18 +1,46 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-title>view-walkins</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
+
+<ion-buttons slot="start">
+  <ion-back-button defaultHref="/"></ion-back-button>
+</ion-buttons>
 
 <ion-content>
-  <ion-grid>
-    <ion-row *ngFor="let x of walkinList">
-
-      <p>
-       name: {{x.name}} surname: {{x.surname}} email: {{x.email}} phone: {{x.phone}} checkin: {{x.checkin}} timein: {{x.timein}} checkout:{{x.checkout}} timeout:{{x.timeout}} 
-        
-      </p>
-      
+    <ion-card *ngFor="let x of walkinList">
+      <ion-row>
+      Name: {{x.name}}
     </ion-row>
-  </ion-grid>
+    <br/>
+      <ion-row>
+      Surname: {{x.surname}}
+  </ion-row>
+  <br/>
+      <ion-row>
+       Email: {{x.email}}
+    </ion-row>
+    <br/>
+       <ion-row>
+        Phone: {{x.phone}}
+       </ion-row>
+    <br/>
+      <ion-row>
+        Checkin: {{x.checkin}}
+      </ion-row>
+      <br/>
+      <ion-row>
+        Timein: {{x.timein}}
+    </ion-row>
+    <br/>
+      <ion-row>
+        Checkout:{{x.checkout}}
+    </ion-row>
+    <br/>
+       <ion-row>
+        Timeout:{{x.timeout}}
+       </ion-row> 
+    
+ </ion-card>
 </ion-content>

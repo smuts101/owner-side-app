@@ -1,0 +1,25 @@
+ion-button{
+  display: flex;
+  flex-direction: column;
+  justify-self: center;
+  --background: #9010F5;
+  width: 120px;
+  margin-left: 120px;
+  margin-top: 30px;
+
+}
+
+.wrapper{
+    display: flex;
+    flex-direction: column;
+    // justify-content: center;
+    // align-items: center;
+    width: 100%;
+    height: 100%;
+
+}
+
+.h1{
+    font-size: 14px;
+    text-align: center;
+}

@@ -72,7 +72,7 @@
   </div>
   </ion-item>
   <ion-item><ion-input  type="text" formControlName="company_website" placeholder="Website"></ion-input></ion-item>
-  <ion-textarea  type="text" formControlName="aboutus" placeholder="Description" style="border-style: solid;height: 15%;border-width: 1px;border-color: rgb(196, 190, 190);border-top: 0px;margin: 0px;"></ion-textarea>
+  <ion-textarea  type="text" formControlName="aboutus" placeholder="Description" style="border-style: solid;height: 15%;border-width: 1px;border-color: #16D6E3; border-top: 0px;margin: 0px;"></ion-textarea>
   <div style="color:red;" *ngIf="isValidInput('aboutus')"
           class="alert alert-danger">
           <div *ngIf="updateForm.controls['aboutus'].errors.required">
@@ -85,21 +85,21 @@
             min length is 2
            </div>
         </div>
-  <ion-item>
+  
     <ion-input type="file"  required   name="img"  accept="image/*" id="upload" (change)="fileChangeEvent($event)"></ion-input>
     <div>
       <div style="color:red;" *ngIf=" this.imageError!==''">{{this.imageError}}</div>
     </div>
-  </ion-item>
+  
   <!-- <div *ngFor="let cartoon of cartoonsData">
     <input type="checkbox"    (change)="onChange(cartoon.name, $event.target.checked)" />
     {{ cartoon.name }}
   </div> -->
-<p style="font-size:14px; font-weight: bolder;color: gray;">Select enemities</p>
+<p style="font-size:18px; color: black;font-weight: bold;">Select Amenities</p>
   <ion-grid>
-    <ion-row style="color: grey;margin: 5px;">
+    <ion-row style="color: black;margin: 5px;">
       <ion-col *ngFor="let cartoon of cartoonsData">
-        <div style="font-size: 12px;">{{ cartoon.name }} <br> 
+        <div style="font-size: 14px;">{{ cartoon.name }} <br> 
            <input type="checkbox" formControlName="nameAnim" 
             (change)="onChange(cartoon.name, $event.target.checked)" />
         </div>
@@ -107,14 +107,14 @@
       <div style="color:red;" *ngIf="isValidInput('nameAnim')"
       class="alert alert-danger">
       <div *ngIf="updateForm.controls['nameAnim'].errors.required">
-        Atleast one Anemity should be selected
+        Atleast one Amenity should be selected
       </div>
      
     </div>
     </ion-row>
   </ion-grid>
-  <ion-button (click)="submit()"     expand="full" color="danger">Submit</ion-button>
-  <ion-button (click)="update()"  expand="full" color="warning">Edit</ion-button>
+  <ion-button (click)="submit()"  expand="full" class="submit">Submit</ion-button>
+  <ion-button (click)="update()"  expand="full" class="edit">Edit</ion-button>
   <br><br><br><br><br>
     </form>
     <ng-template #loggedOut>
@@ -222,11 +222,11 @@
            maxlength="150"
            minlength="5"
            #aboutus="ngModel"
-           style="border-style: solid;height: 15%;border-width: 1px;border-color: rgb(196, 190, 190);border-top: 0px;margin: 0px;"></ion-textarea>
+           style="border-style: solid;height: 15%;border-width: 1px;border-color:#16D6E3;border-top: 0px;margin: 0px;"></ion-textarea>
            <div style="color:red;" *ngIf="!aboutus?.valid && (aboutus?.dirty || aboutus?.touched)">
-            Invalid aboutus
+            Invalid about us
             <div *ngIf="aboutus.errors.required">
-              aboutus is required
+              about us is required
            </div>
            <div *ngIf="aboutus.errors.maxlength">
             maxlength is 150
@@ -237,22 +237,24 @@
     
          </div>
  
-           <ion-item>
+           
     <ion-input type="file"  required   name="img"  accept="image/*" id="upload" (change)="fileChangeEvent($event)"></ion-input>
     <div>
       <div style="color:red;" *ngIf=" this.imageError!==''">{{this.imageError}}</div>
     </div>
-    <button style="color:green;" (click)="changeImage()"> Change Profile</button>
+    <button class="profile" style="background-color:#c788f7; text-align: center;" (click)="changeImage()">Change Profile</button>
 
-  </ion-item>
+ 
   
 
-<ion-item><p style="font-size:14px; font-weight: bolder;color: gray;">your enemities</p></ion-item>
+<p style="font-size:18px; color: black; margin-left: 20px;">Amenities</p>
 <ion-item>
 <ion-grid>
-    <ion-row style="color: grey;margin: 5px;">
+    <ion-row style="color: black;margin: 5px;">
+
+
       <ion-col *ngFor="let xx of x.outside_features">
-        <div style="font-size: 12px;">{{ xx }} <br> 
+        <div class="circles" style="font-size: 14px;">{{ xx }} <br> 
         </div>
       </ion-col>
     </ion-row>
@@ -261,11 +263,11 @@
 <ion-item>
  <ion-grid>
    <ion-row>
-    <ion-item><p style="font-size:14px; font-weight: bolder;color: gray;">update enemities</p></ion-item>
+    <p style="font-size:18px; color: black; font-weight: bold;">Update Amenities</p>
    </ion-row>
-    <ion-row style="color: grey;margin: 5px;">
+    <ion-row style="color: black;margin: 5px;">
       <ion-col *ngFor="let cartoon of cartoonsData">
-        <div style="font-size: 12px;">{{ cartoon.name }} <br> 
+        <div style="font-size: 14px;">{{ cartoon.name }} <br> 
            <input type="checkbox"
      
            (change)="onChange(cartoon.name, $event.target.checked)" />
@@ -277,8 +279,8 @@
 </ion-item>
 <!-- [disabled]="!editForm.valid"  -->
 <ion-item>
-  <ion-button (click)=" editForms()" expand="full" color="danger">Edit</ion-button>
-  <ion-button (click)=" editAll()"  expand="full" color="warning">Edit All</ion-button>
+  <ion-button (click)=" editForms()" expand="full" class="edit2">Edit</ion-button>
+  <ion-button (click)=" editAll()"  expand="full" class="editall">Edit All</ion-button>
 </ion-item>
 
 

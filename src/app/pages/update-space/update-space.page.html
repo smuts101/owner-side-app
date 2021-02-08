@@ -1,11 +1,15 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/"></ion-back-button>
     </ion-buttons>
     <ion-title>update-space</ion-title>
   </ion-toolbar>
-</ion-header>
+</ion-header> -->
+
+<ion-buttons slot="start">
+  <ion-back-button defaultHref="/"></ion-back-button>
+</ion-buttons>
 
 <ion-content>
 
@@ -13,10 +17,10 @@
 
   <ion-grid>
     <ion-row>
-  <ion-item  *ngFor="let x of arrayList">
-    <ion-avatar slot="start">
+  <ion-card  *ngFor="let x of arrayList">
+    <div class="newimage">
       <img [src]="x.image">
-    </ion-avatar>
+    </div>
     <ion-label>
      <ion-grid>
        <ion-row>
@@ -39,26 +43,32 @@
        <ion-row>
 
        
-         <a [routerLink] = "['/previews',x.uid,x.workspace_uid,x.spaceuid]">Previews</a>
+         <p [routerLink] = "['/previews',x.uid,x.workspace_uid,x.spaceuid]" style="color: #9010F5; font-size: 14px;">Previews</p>
        </ion-row>
        <ion-row>
          <ion-col>
-          <ion-button (click)="EditForm(x.spaceuid)"> Edit</ion-button>
-         </ion-col>
-         <ion-col ><ion-button (click)=" addGallary(x.spaceuid)"    color="warning">Gallary</ion-button></ion-col>
-         <ion-col>
-          <ion-button color="danger" (click)="remove(x.spaceuid)" > Remove</ion-button>
+          <!-- <ion-button (click)="EditForm(x.spaceuid)">Edit</ion-button> -->
+          <ion-icon (click)="EditForm(x.spaceuid)" name="create-outline" class="editing"></ion-icon>Edit
          </ion-col>
          <ion-col >
-          <ion-button  [routerLink] = "['/walkins',x.spaceuid,x.categories,x.workspace_uid]"> Walkins</ion-button>
+           <ion-button (click)=" addGallary(x.spaceuid)" class="gallery" shape="round">Gallery</ion-button>
          </ion-col>
-       </ion-row>
-       <ion-row>
-        <ion-button  [routerLink] = "['/view-walkins',x.spaceuid,x.categories,x.workspace_uid]">view Walkins</ion-button>
+         <ion-col>
+          <!-- <ion-button color="danger" (click)="remove(x.spaceuid)">Remove</ion-button> -->
+          <ion-icon color="danger" (click)="remove(x.spaceuid)" name="trash-outline" class="remove"></ion-icon>Remove
+         </ion-col>
+         <ion-col>
+          <ion-button  [routerLink] = "['/walkins',x.spaceuid,x.categories,x.workspace_uid]" class="walkins" shape="round">Walkins</ion-button>
+         </ion-col>
+       <!-- </ion-row> -->
+       <!-- <ion-row> -->
+         <ion-col>
+        <ion-button  [routerLink] = "['/view-walkins',x.spaceuid,x.categories,x.workspace_uid]" class="view" shape="round">view Walkins</ion-button>
+        </ion-col>
        </ion-row>
      </ion-grid>
     </ion-label>
-  </ion-item>
+  </ion-card>
 </ion-row>
 <ion-row>
 
@@ -96,7 +106,7 @@
 
         <form #editSpaceForm="ngForm" type="text" style="width: 100%;top: 15%;height: 80%;">
        
-              <ion-label><b>Description</b> </ion-label>
+              <ion-label>Description</ion-label>
              <ion-input
                 type="text"    
                 [(ngModel)]="description_" 
@@ -115,7 +125,7 @@
                 maxlength is 100
              </div>
              </div>
-             <ion-label><b>Price</b> </ion-label>
+             <ion-label>Price</ion-label>
             <ion-input  
                 type="number"  
                 placeholder="price..."
@@ -124,7 +134,7 @@
                 name="price_">
             </ion-input>
       
-            <ion-label><b>Province</b> </ion-label>
+            <ion-label>Province</ion-label>
            <ion-input  
             type="text"  
             placeholder="province ..."
@@ -146,7 +156,7 @@
 
        
         
-       <ion-label><b>Address</b> </ion-label>
+       <ion-label>Address</ion-label>
              <ion-textarea  
              type="text"  
              [(ngModel)]="address_" 
@@ -154,7 +164,7 @@
              required
              maxlength="100"
              #address="ngModel" 
-             style="border-style: solid;height: 15%;border-width: 1px;border-color: rgb(196, 190, 190);border-top: 0px;margin: 0px;">
+             style="border-style: solid;height: 15%;border-width: 1px;border-color: #16D6E3;border-top: 0px;margin: 0px;">
             </ion-textarea>
             <div style="color:red;" *ngIf="!address?.valid && (address?.dirty || address?.touched)">
               Invalid address
@@ -166,7 +176,7 @@
            </div>
            </div>
       
-              <ion-label><b>Category Number</b> </ion-label>
+              <ion-label>Category Number</ion-label>
               <ion-select  [(ngModel)]="category_number_"   required     #category_number="ngModel"  name="category_number">
                   <ion-select-option value="1">1</ion-select-option>
                   <ion-select-option value="2">2</ion-select-option>
@@ -198,11 +208,11 @@
   <ion-item>
     <ion-grid>
       <ion-row>
-       <ion-item><p style="font-size:14px; font-weight: bolder;color: gray;">update enemities</p></ion-item>
+       <ion-label style="font-size:18px;color: black;">Update amenities</ion-label>
       </ion-row>
-       <ion-row style="color: grey;margin: 5px;">
+       <ion-row style="color: black;margin: 5px;">
          <ion-col *ngFor="let cartoon of cartoonsData">
-           <div style="font-size: 12px;">{{ cartoon.name }} <br>  <input type="checkbox"    (change)="onChange(cartoon.name, $event.target.checked)" />
+           <div style="font-size: 14px;">{{ cartoon.name }} <br>  <input type="checkbox"    (change)="onChange(cartoon.name, $event.target.checked)" />
            </div>
          </ion-col>
        </ion-row>
@@ -212,15 +222,15 @@
 
   
   <ion-item>
-    <ion-button (click)=" updateSpace()" [disabled]="!editSpaceForm.valid"   expand="full" color="danger">Edit</ion-button>
-    <ion-button (click)=" close()"   expand="full" color="warning">Close</ion-button>
+    <ion-button (click)=" updateSpace()" [disabled]="!editSpaceForm.valid"   expand="full" class="edit">Edit</ion-button>
+    <ion-button (click)=" close()"   expand="full" class="close">Close</ion-button>
  
   </ion-item>
   <div>
     <form #setMapForm="ngForm" >
-    <h3>Add address of workspace to google maps</h3>
+    <ion-label style="font-size: 18px; margin-left: 10px;">Add workspace address to google maps</ion-label>
     <ion-item>
-      <ion-label position="stacked">Enter Address to Geocode</ion-label>
+      <ion-label style="font-size: 18px;">Enter Address to Geocode</ion-label>
       <ion-input 
                   type="text" 
                   [(ngModel)]="addressLocation" 
@@ -260,13 +270,13 @@
   <!-- <ion-item> -->
     <div> 
       <form #extrasForm="ngForm">    
-      <h3>Add extras</h3>
+      <h3 style="font-size: 18px;">Add extras</h3>
       <ion-grid>
         <ion-row>
           <ion-col>
             <ion-input  
             type="text"  
-            placeholder="enemity..."
+            placeholder="Amenity..."
             [(ngModel)]="enemity" 
             name="enemity"
             maxlength="8"
@@ -338,7 +348,7 @@
 </div> 
 <div>
 <form #changeImageForm="ngForm">
-        <h3>Change profile</h3>
+        <h3 style="font-size: 18px;">Change profile</h3>
         <div>
           <ion-input type="file"  required   name="img"  accept="image/*" id="upload" (change)="fileChangeEvent($event)"></ion-input>
         
