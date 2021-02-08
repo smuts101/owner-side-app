@@ -12,7 +12,7 @@ import { SignInSignUpService } from 'src/app/sign-in-sign-up.service';
   styleUrls: ['./signup.page.scss'],
 })
 export class SignupPage implements OnInit {
-
+  _error:any
   constructor(private formBuilder:FormBuilder, private accountService:SignInSignUpService,private router: Router,public nav: NavController,
     public loadingCtrl: LoadingController,private alertCtrl: AlertController ) { }
 
@@ -51,41 +51,72 @@ public errorMessages = {
 
 
   }
-  // public submit() {
-  //   console.log(this.createForm.value.password);
-  //   console.log(this.createForm.value.email);
-  //   this.accountService.createAccount(this.createForm.value.email,this.createForm.value.password)
-  // }
+ 
   async submit() {
-    const alert = await this.alertCtrl.create({
-      message: `Your account is registered successfully, click Okay to continue to login.`,
+    const loading = await this.loadingCtrl.create();
+            console.log(this.createForm.value);
+            if (this.createForm.valid) {
+              this.accountService.Signup(this.createForm.value.email, this.createForm.value.password).then((res) => {
+                this.showAlertSuccessReg();
+                firebase.auth().currentUser.sendEmailVerification();
+              }).then(() => {
+                loading.dismiss().then(() => {
+                  // firebase.auth().currentUser.sendEmailVerification();
+                  this.router.navigateByUrl('/signin');
+                });
+              },
+                error => {
+                  loading.dismiss().then(() => {
+                    this._error = error.message;
+                    this.showAlertErrorfb();
+                    console.log(error);
+                    this.router.navigateByUrl('/signup');
+                    this.createForm.reset();
+                  });
+                }
+            );
+    return await loading.present();
+          }
+   
+  }
+  
+    async showAlertErrorfb() { 
+     const alert = await this.alertCtrl.create({ 
+     header: 'Alert', 
+    // subHeader: 'Sign in error!',
+       message:  this._error,
       buttons: [
         {
           text: 'Okay',
-          handler: () => {
-            console.log(this.createForm.value);
-            // this.isSubmitted = true;
-            if(this.createForm.valid){
-              this.accountService.Signup(this.createForm.value.email, this.createForm.value.password).then((res) => {
-                return firebase.firestore().collection('Users').doc(res.user.uid).set({
-                  // name: this.RegForm.value.name,
-                  // lastname: this.RegForm.value.lastname,
-                  email: this.createForm.value.email,
-                  password: this.createForm.value.password
-                }).then(() => {
-                  console.log(res.user);
-                  this.router.navigate(['/signin']);
-                }).catch(function (error) {
-                  console.log(error);
-                });
-              })
-            }
-          }
+          handler: async () => {
+            this.router.navigateByUrl('/signup');
+      }
         },
       ]
-    });
-    return await alert.present();
+    }); 
+   await alert.present(); 
   }
+  
+  
+    async showAlertSuccessReg() { 
+
+  const alert = await this.alertCtrl.create({ 
+      header: 'Alert!', 
+       message: 'Account Registered using' + this.email + ' Click Okay to sign in and finish creating a business profile',
+      buttons: [
+        {
+          text: 'Okay',
+          handler: async () => {
+            this.router.navigateByUrl('/signin');
+      }
+        },
+      ]
+    }); 
+    await alert.present(); 
+    
+    
+    
+  } 
   }
 
 

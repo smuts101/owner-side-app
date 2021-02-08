@@ -35,10 +35,7 @@ const routes: Routes = [
     path: 'profile-add',
     loadChildren: () => import('./pages/profile-add/profile-add.module').then( m => m.ProfileAddPageModule)
   },
-  {
-    path: 'user-group',
-    loadChildren: () => import('./pages/user-group/user-group.module').then( m => m.UserGroupPageModule)
-  },
+ 
   {
     path: 'update-space/:category',
     loadChildren: () => import('./pages/update-space/update-space.module').then( m => m.UpdateSpacePageModule)
