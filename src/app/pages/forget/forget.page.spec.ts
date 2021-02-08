@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { UserGroupPage } from './user-group.page';
+import { ForgetPage } from './forget.page';
 
-describe('UserGroupPage', () => {
-  let component: UserGroupPage;
-  let fixture: ComponentFixture<UserGroupPage>;
+describe('ForgetPage', () => {
+  let component: ForgetPage;
+  let fixture: ComponentFixture<ForgetPage>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UserGroupPage ],
+      declarations: [ ForgetPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(UserGroupPage);
+    fixture = TestBed.createComponent(ForgetPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { UserGroupPageRoutingModule } from './user-group-routing.module';
+import { ForgetPageRoutingModule } from './forget-routing.module';
 
-import { UserGroupPage } from './user-group.page';
+import { ForgetPage } from './forget.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    UserGroupPageRoutingModule
+    ForgetPageRoutingModule
   ],
-  declarations: [UserGroupPage]
+  declarations: [ForgetPage]
 })
-export class UserGroupPageModule {}
+export class ForgetPageModule {}
