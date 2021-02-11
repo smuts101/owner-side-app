@@ -84,6 +84,7 @@ db =firebase.firestore();
   }
 
   ngOnInit() {
+    
   } 
 
   logout(){
